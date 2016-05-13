@@ -9,6 +9,40 @@ curr_activation_code
 is_admin
 is_disabled
 
+user_setting
+------------
+id
+user_id
+last_login
+browser_name
+os_type
+device_name
+
+contact_info
+---------------
+id
+email
+name
+message_details 
+is_closed (0,1,2)
+
+website_setting
+----------------
+id
+website_name
+website_logo
+website_status ( online-offline )
+website_description
+website_keywords
+
+coupon_codes
+--------------
+id
+id_coupon [SD215FdDF]
+coupon_percent
+coupon_for(0->all,1-> group of emails)
+user_id's
+
 user_course_transactions
 -------------
 id
@@ -21,5 +55,34 @@ course_tutorial_key
 --------------------
 id
 course_name
+course_description
+course_intro_video
+course_intro_image
+course_price
+
+video_tuts
+-----------
+id
+course_id
+lesson_name
+lesson_description
+lesson_video_data
+lesson_video_url
+lesson_video_size
+
+video_inprogress
+-----------------
+id
+user_id
+video_tut_id
+video_related_id
+video_progress_minute
+
+paypal_setting
+---------------
+id 
+secret_id
+public_id
+type[ sandbox or live ]
 
 
