@@ -1,5 +1,5 @@
 <?php
- $db_file = dirname(__FILE__)."/elearner_courses_db.php" ;
+ $db_file = dirname(__FILE__)."/../config/elearner_courses_db.php" ;
 if(is_file($db_file))
     require_once $db_file ;
 class delete_application extends database {

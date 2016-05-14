@@ -6,7 +6,7 @@
  *
  * @author Montasser Mossallem
  */
-$db_file = dirname(__FILE__)."/elearner_courses_db.php" ;
+$db_file = dirname(__FILE__)."/../config/elearner_courses_db.php" ;
 if(is_file($db_file))
     require_once $db_file ;
 
@@ -23,7 +23,7 @@ class get_applications extends database {
             }
       
          
-        $qString = sprintf("SELECT * FROM `{$tableName}` %s",$data);
+       echo $qString = sprintf("SELECT * FROM `{$tableName}` %s",$data);
         $query = mysqli_query($this->open_connection(), $qString );
         $this->close_connection();
         if(!$query)
@@ -49,7 +49,7 @@ class get_applications extends database {
       *         %=> `LIKE %value%`
       *         
       */
-     public function get_data_according_to_array($args = [] , $tableName , $type = NULL , $operatorType = NULL /*case ' % ' */  ){
+     public function get_data_according_to_array( $tableName ,$args = [] , $type = NULL , $operatorType = NULL /*case ' % ' */  ){
        if(!is_array($args ))
         {
             echo "There are an errors " ;
@@ -62,7 +62,7 @@ class get_applications extends database {
            return false ;
        }
        
-         $arguments =" WHERE ";
+         $arguments ="WHERE";
         $i=0;
         
         switch ($type) {
@@ -78,27 +78,27 @@ class get_applications extends database {
               
               case 'and':
                    foreach ($args as $key => $value) {
-                            $arguments .=  "`".$key."`='{$value}'";
+                            $arguments .=  " `".$key."`='{$value}'";
                            if($i != (count($args)-1))
-                               $arguments .= " AND ";
+                               $arguments .= " AND";
                           $i++ ;
                        }
                  break;
               
               case 'or':
                    foreach ($args as $key => $value) {
-                            $arguments .=  "`".$key."`='{$value}'";
+                            $arguments .=  " `".$key."`='{$value}'";
                            if($i != (count($args)-1))
-                               $arguments .= " OR ";
+                               $arguments .= " OR";
                           $i++ ;
                        }
                  break;
               
             default: // mean type is NULL exist
                  foreach ($args as $key => $value) {
-                             $arguments .=  "`".$key."`='{$value}'";
+                             $arguments .=  " `".$key."`='{$value}'";
                            if($i != (count($args)-1))
-                               $arguments .= " AND ";
+                               $arguments .= "AND";
                           $i++ ;
                        }
                 break;
