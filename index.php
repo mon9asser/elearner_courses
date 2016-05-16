@@ -21,6 +21,27 @@
     <![endif]-->
   </head>
   <body>
+      
+      <div class="loadin-page">
+          <div style="margin-top: 20%;" class="windows8">
+                    <div class="wBall" id="wBall_1">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_2">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_3">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_4">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_5">
+                            <div class="wInnerBall"></div>
+                    </div>
+            </div>
+      </div>
+      
       <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
               <div class="navbar-header">
@@ -421,6 +442,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script>
         $(document).ready(function (){
+            $('.loadin-page').delay(3000).fadeOut();
             var wss_array  = [
                 '<div class="slider img-background" style="background-image: url(images/2.jpg); display:none;"> </div>',
                 '<div class="slider img-background" style="background-image: url(images/3.jpg); display:none;"> </div>',
