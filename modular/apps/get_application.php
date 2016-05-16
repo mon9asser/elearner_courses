@@ -23,7 +23,7 @@ class get_applications extends database {
             }
       
          
-       echo $qString = sprintf("SELECT * FROM `{$tableName}` %s",$data);
+         $qString = sprintf("SELECT * FROM `{$tableName}` %s",$data);
         $query = mysqli_query($this->open_connection(), $qString );
         $this->close_connection();
         if(!$query)

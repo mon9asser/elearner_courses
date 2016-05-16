@@ -1,0 +1,360 @@
+/* 
+    Document   : home
+    Created on : May 16, 2016, 12:15:27 AM
+    Author     : Montasser Mossallem
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+ tml {
+    overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'AUdimatRegular';
+ src: url('../fonts/AUdimat-Regular.otf') format('opentype');
+}
+
+ @font-face {
+  font-family: 'Raleway-regular';
+ src: url('../fonts/Raleway-Regular.ttf') format('opentype');
+}
+
+ @font-face {
+  font-family: 'Economica-Regular';
+ src: url('../fonts/Economica-Regular-OTF.otf') format('opentype');
+}
+ @font-face {
+  font-family: 'Economica-Bold';
+ src: url('../fonts/Economica-Bold-OTF.otf') format('opentype');
+ }
+ @font-face {
+  font-family: 'Digital_tech';
+ src: url('../fonts/Digital_tech.otf') format('opentype');
+}
+ @font-face {
+  font-family: 'MuseoSans_900';
+ src: url('../fonts/MuseoSans_900.ttf') format('opentype');
+}
+@font-face {
+  font-family:  'MuseoSans_500';
+   src: url('../fonts/MuseoSans_500.ttf') format('opentype');
+}
+
+ @font-face {
+  font-family: 'Barkentina';
+ src: url('../fonts/Barkentina.otf') format('opentype');
+}
+
+
+
+body{
+    font-family: arial , sans-serif ;
+    margin: 0px ;
+    outline: 0px;
+}
+
+
+/*EF4836*/
+.navbar-default {
+     border-color: transparent;
+    border-radius: 0px;
+     background: rgba(249, 191, 59,5);
+}
+.slider {
+    z-index: 20;
+    position: relative;
+    width: 100%;
+    position: relative ;
+    overflow: hidden ;
+    height: 650px;
+     background-color: rgba(0,0,0,1);
+     background-position: 80% 10%;
+     background-size: cover ;
+      
+}
+.slide-mask {
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+
+
+.logo:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 20;
+     margin: 0 auto;
+     z-index: 2;
+    width: 0;
+    height: 0;
+    border-top: solid 50px  rgba(249, 191, 59,5);;
+    border-left: solid 50px transparent;
+    border-right: solid 50px transparent;
+}
+.img-background {
+    z-index: 100;
+}
+
+.slide-mask {
+    z-index: 110;
+}
+.carousel {
+    left: 0px ;
+    right: 0px;
+    bottom: 30%;
+    top: 30%;
+    z-index: 150;
+    position: absolute;
+     text-align: center;
+}
+
+.heading {
+    font-size: 80px;
+    font-family: 'MuseoSans_900';
+    color: rgba(249, 191, 59,5);
+}
+.heading span {
+    display: inline-block;
+}
+.heading3 {
+    padding: 0px;
+    margin: 0px;
+    float: right;
+    margin-top: -10px;
+     font-family: 'MuseoSans_500';
+    
+}
+.slogan {
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    font-family: 'Barkentina';
+    font-size: 35px;
+    margin-top: 10px;
+   
+}
+.section-valuable {
+    height: 200px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+.values {
+   margin-top: 90px;
+   font-family: 'AUdimatRegular';
+   color: #000;
+   padding-left: 20px;
+}
+.btnprimarico {
+    margin-top: 90px;
+    display: inline-block;
+    background: #e60d2d;
+    border: 0px;
+    color: #fff;
+    font-family: 'MuseoSans_500'; 
+    border-radius: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btnprimarico:hover ,  .btnprimarico:link , .btnprimarico:visited , .btnprimarico:focus{
+     background: #e60d2d;
+      color: #fff;
+}
+.section-valuable {
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    background-color:  rgba(249, 191, 59,5);
+    
+    background-size: cover ;
+    background-position: center ;
+    background-repeat: no-repeat ;
+    background-image: url(../images/bg_register_now.jpg);
+    background-attachment: fixed;
+}
+.section-valuable .mask-layer {
+    background-color:  rgba(249, 191, 59,.8);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 30;
+}
+.row {
+    z-index: 50 ;
+    position: relative;
+}
+ 
+.feauture_skills {
+    background: #e60d2d;;
+    padding-bottom: 60px;
+}
+.headlin-feature-course {
+    font-family: 'AUdimatRegular';
+    color: #fff;
+}
+.slick-arrow {
+    display: none ;
+}
+.btn-slider {
+    background: transparent ;
+    border: 1px solid #fff;
+    color: #fff;
+    margin: 30px 0px 0px 0px;
+    border-radius: 0px;
+}
+.btn-slider > .fa:hover {
+      color: #fff;
+
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fff;
+}
+
+.single-item {
+    margin-top: 20px;
+}
+.feauture-course-container {
+    width: 77%;
+      cursor: pointer;
+    height: 300px;
+   border: 1px solid #fff;
+   overflow: hidden;
+   position: relative;
+    background: #fff;
+    margin: 0px auto;
+    
+}
+.image-container {
+     overflow: hidden;
+      height: 210px;
+       width: 100%;
+       border-bottom: 1px solid #fff;
+     
+}
+.img-course-block {
+    height: 210px;
+     width: 100%;
+     
+    z-index: 10 ;
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    background-position: 80% 80%;
+    position: relative;
+    overflow: hidden;
+    
+   transition: transform 2s;
+}
+.img-course-block:hover {
+    transform:scale(1.1);
+}
+.mask-layer-courses {
+    top: 0px ;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute ;
+    background: rgba(0,0,0,.3);
+}
+.course-name-container {
+    width: 100%;
+    display: inline-block ;
+   overflow: hidden ;
+   margin-top: 7px;
+   font-family: 'Raleway-regular';
+   color: #000;
+}
+.descripe-course-feauture {
+    width: 100%;
+    display: inline-block ;
+    
+}
+.price-course-feauture {
+     
+    color: #000;
+    float: right;
+    padding: 3px 10px;
+    border-radius: 50%;
+    margin-right: 20px;
+    font-family: arial ,sans-serif;
+    font-weight: bold;
+     margin-top: 3px;
+}
+.groups {
+    float: left;
+    color: #333 ;
+    margin-left: 20px;
+    padding-top: 5px;
+}
+.testmonalisa {
+    background-image: url(../images/pattern.png);
+    background-position: center ;
+    background-repeat: repeat;
+    height: 250px;
+    position: relative;
+    z-index: 20;
+}
+.layer-mask-test {
+        
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px ;
+    right: 0px;
+}
+
+
+.testmonalisa::before {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.1;
+    top: 36px;
+    left: 41%;
+    content: "";
+    height: 200px;
+    width: 200px;
+    background: url(../images/Quotes_symbol.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
+}
+
+#text-carousel {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  font-family: 'Raleway-regular';
+  font-size: 18px;
+}
+
+.footer {
+     
+    overflow: hidden;
+      background: rgba(249, 191, 59,5);
+      
+}
+a , .navbar-nav > li > a,.nav > li > a:focus, .nav > li > a:hover{
+    color: #000; 
+    background: transparent;
+}
+@media screen and (max-width:780px){
+    .logo img {
+        width: 70px;
+        margin-top: -20px;
+    }
+}
