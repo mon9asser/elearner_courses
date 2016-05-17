@@ -6,13 +6,17 @@
         Purpose of the stylesheet follows.
 */
 
- tml {
+ html {
     overflow-x: hidden;
 }
 
 @font-face {
   font-family: 'AUdimatRegular';
  src: url('../fonts/AUdimat-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'KGTraditionalFractions';
+ src: url('../fonts/KGTraditionalFractions.ttf') format('opentype');
 }
 
  @font-face {
@@ -46,6 +50,32 @@
  src: url('../fonts/Barkentina.otf') format('opentype');
 }
 
+
+
+@font-face {
+  font-family: 'Raleway-SemiBold';
+ src: url('../fonts/Raleway-SemiBold.ttf') format('opentype');
+}
+
+
+
+
+@font-face {
+  font-family: 'Roboto-Black';
+ src: url('../fonts/Roboto-Black.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Roboto-Light';
+ src: url('../fonts/Roboto-Light_1.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Roboto-Medium';
+ src: url('../fonts/Roboto-Medium.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'HelveticaNeueMed';
+ src: url('../fonts/HelveticaNeueMed.ttf') format('opentype');
+}
 
 
 body{
@@ -228,7 +258,7 @@ body{
 .feauture-course-container {
     width: 77%;
       cursor: pointer;
-    height: 300px;
+    height: 330px;
    border: 1px solid #fff;
    overflow: hidden;
    position: relative;
@@ -240,7 +270,7 @@ body{
      overflow: hidden;
       height: 210px;
        width: 100%;
-       border-bottom: 1px solid #fff;
+       
      
 }
 .img-course-block {
@@ -271,9 +301,10 @@ body{
     width: 100%;
     display: inline-block ;
    overflow: hidden ;
-   margin-top: 7px;
+   padding: 7px 0px;
    font-family: 'Raleway-regular';
    color: #000;
+   background: thistle;
 }
 .descripe-course-feauture {
     width: 100%;
@@ -281,7 +312,7 @@ body{
     
 }
 .price-course-feauture {
-     
+     font-family: 'HelveticaNeueMed';
     color: #000;
     float: right;
     padding: 3px 10px;
@@ -293,7 +324,7 @@ body{
 }
 .groups {
     float: left;
-    color: #333 ;
+    color: thistle; ;
     margin-left: 20px;
     padding-top: 5px;
 }
@@ -301,7 +332,7 @@ body{
     background-image: url(../images/pattern.png);
     background-position: center ;
     background-repeat: repeat;
-    height: 250px;
+    min-height: 250px;
     position: relative;
     z-index: 20;
 }
@@ -325,6 +356,22 @@ body{
     height: 200px;
     width: 200px;
     background: url(../images/Quotes_symbol.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.tester {
+    padding-top: 80px;
+}
+.tester:before {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.1;
+    top: 36px;
+    left: 41%;
+    content: "";
+    height: 200px;
+    width: 200px;
+    background: #fff;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -714,3 +761,225 @@ a , .navbar-nav > li > a,.nav > li > a:focus, .nav > li > a:hover{
 		-moz-transform: rotate(900deg);
 	}
 }
+
+
+
+
+/********************************************/
+                /* Login */
+/********************************************/
+.log-section {
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
+    z-index: 1500 ;
+    background: rgba(249, 191, 59,.7); 
+    display: table-row;
+    
+}
+.log-block {
+    display: block;
+    position:absolute;
+	left:46%;
+	top:40%;
+	margin:-100px 0 0 -150px;
+    width: 360px;
+    background: #fff;
+   height: auto;
+    
+}
+.log-headline {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    background:#e60d2d ;
+ }
+ .logheadline {
+     display: block;
+     overflow: hidden ;
+     padding: 10px 15px 10px 15px;
+     font-size: 18px;
+     margin: 0px;
+     font-family: 'MuseoSans_500';
+     color: #fff;
+ }
+ 
+ .log-body {
+     width: 100%;
+     display: block;
+     overflow: hidden;
+     margin-top: 8px;
+ }
+ 
+ .input {
+     width: 95%;
+     display: block;
+     overflow: hidden;
+     border: 1px solid #e1e0de ;
+     padding: 8px 8px;
+     display: block;
+     margin: 4px auto;
+     font-family: 'MuseoSans_500';
+ }
+ .forget-password {
+     width: 95%;
+     display: block;
+     overflow: hidden ;
+     margin: 0px auto;
+ }
+ .forgetPassword , .forgetPassword:hover , .forgetPassword:focus {
+     color: #666;
+     text-decoration: none;
+     outline: none;
+ }
+ .login-btn {
+     width: 95%;
+     display: block;
+     overflow: hidden;
+      display: block;
+    margin: 8px auto;
+    color: #fff;
+    text-align: center;
+    font-family: 'MuseoSans_500';
+    font-size: 18px;
+    padding: 8px 0px;
+    border-color: #ff5a5f;
+    border-bottom-color: #e00007;
+    background-color: #ff5a5f;
+    color: #fff;
+    cursor: pointer;
+ }
+ .footer-logs {
+     width: 95%;
+     display: block;
+     overflow: hidden;
+     margin: 5px auto 8px auto;
+     border-top: #e1e0de 1px solid ;
+     
+ }
+ 
+  .ask-about-account,  .ask-about-account:hover ,  .ask-about-account:focus {
+     color: #666;
+     text-decoration: none;
+     outline: none;
+     
+ }
+ .ask-about-account {
+     padding-top: 10px;
+     padding-bottom: 8px;
+     float: left;
+     display: block;
+ }
+ .btn-sign   ,.btn-sign:hover   ,.btn-sign:focus ,  .btn-sign.focus{
+     float: right;
+     border-radius: 0px;
+     background: none;
+     color: #e60d2d;
+     margin: 5px 0px 0px 0px;
+     padding: 5px 5px ;
+     outline: none;
+     
+ }
+ 
+ .spanner {
+     width: 95%;
+     margin: 5px auto;
+     color: #999;
+ }
+ 
+ 
+ .sign-s {
+      padding-top: 10px;
+padding-bottom: 10px;
+ }
+ .log-block {
+     box-shadow: 0px 0px 8px #fff;
+ }
+ 
+ #login-section ,#sign-up-section {
+     display: none ;
+ }
+ #login-section-close {
+     position: fixed;
+      background: transparent ;
+     font-family: arial , sans-serif ;
+     font-size: 18px;
+     left:0px ;
+     right: 0px;
+     bottom: 0px;
+     top:0px;
+     padding: 4px;
+ }
+ .signup-block {
+     top: 20%;
+ }
+ .course-name-container {
+     font-size: 14px;
+     font-family:  arial , sans-serif;
+     color: #fff;
+ }
+ .Category {
+     display: block ;
+     width: 100%;
+     overflow: hidden ;
+     padding: 0px 0px;
+     padding-left: 10px;
+     margin: 0px;
+     font-family: 'Raleway-SemiBold';
+    background: #fff;
+    text-align: left;
+    
+ }
+ .Category b {
+     display: inline-block;
+  position: relative;  
+  font-family: 'Roboto-Black';
+ color: tan;
+ }/*
+ .Category b:after  {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid rgba(249, 191, 59,5); 
+    border-top: 1px solid rgba(249, 191, 59,5); 
+    top: 8px;
+    width: 200px;
+ }
+ 
+ .Category b:after {
+  left: 100%;
+  margin-left: 10px;
+}*/
+ .price-course-feauture {
+     font-size: 23px;
+    margin-top: -13px;
+    position: relative;
+    background: tan;
+    border-radius: 0px;
+    margin-right: 0px;
+    color: #fff;
+ }
+ .section-courses {
+     margin-top: 50px;
+ }
+ 
+ .shadows {
+     box-shadow: 0px 0px 5px 0px #999;
+     margin: 8px;
+     width: 260px;
+     display: inline-block;
+ }
+ .pagination {
+     padding: 3px 8px;
+     background: rgba(249, 191, 59,5);
+     color: #111;
+     display: inline-block;
+     border-radius: 0px;
+     cursor: pointer;
+ }
+ .selected {
+     background: #e60d2d;
+     color: #fff;
+ }
