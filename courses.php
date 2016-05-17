@@ -34,12 +34,16 @@
       
       
      <section class="container-fluid testmonalisa tester">
-         <div class="container-fluid" style="margin-top: 30px;">
+         <div class="container-fluid" style="margin-top: -30px; margin-left: 100px;">
               <div class="row">
                   <div class="col-xs-12">
                       <h1 style="color: #e60d2d;" class="headlin-feature-course">
-                        latest courses
+                     <span class="main-name">latest courses</span>
+                        <div class="search-block"></div>
                       </h1>
+                  </div>
+                  <div class="col-xs-12">
+                       <input type="text" class="form-control forma" id="exampleInputEmail1" placeholder="Seach by course name or by category name then hit enter">
                   </div>
                </div> 
           </div>

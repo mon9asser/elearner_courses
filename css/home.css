@@ -983,3 +983,9 @@ padding-bottom: 10px;
      background: #e60d2d;
      color: #fff;
  }
+ .forma {
+     width: 90%;
+     float: left;
+     margin: 10px 0px;
+     border-radius: 0px;
+ }

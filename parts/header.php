@@ -1,4 +1,4 @@
- <!-- Loading Page -->
+ <!-- Loading Page
       <div class="loadin-page">
           <div style="margin-top: 20%;" class="windows8">
                     <div class="wBall" id="wBall_1">
@@ -18,7 +18,7 @@
                     </div>
             </div>
       </div>
-     
+     -->
       <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
               <div class="navbar-header">
