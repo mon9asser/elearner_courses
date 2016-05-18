@@ -8,9 +8,9 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link href="css/home.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -55,17 +55,9 @@
       </section>
       
       
-      <section class="container-fluid section-valuable section-courses">
+      <section class="container-fluid section-valuable section-courses" style="margin-top: 0px;">
           <div class="mask-layer"></div>
-           <div class="container text-left">
-              <div class="row">
-                  <div class="col-xs-12 col-md-8">
-                      <h1 class="headlin-feature-course" style="color: #e60d2d;">
-                        Feature courses
-                      </h1>
-                  </div>
-              </div>
-           </div>
+            
           <div class="row">
               <div class="col-xs-12 col-md-8">
                   <center>
@@ -216,10 +208,10 @@
       
       
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="slick/slick.js"></script>
     <script type="text/javascript" src="js/application.js"> </script>
   </body>
 </html>

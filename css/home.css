@@ -989,3 +989,132 @@ padding-bottom: 10px;
      margin: 10px 0px;
      border-radius: 0px;
  }
+ .main-course-info {
+    
+     min-height: 350px;
+     overflow: hidden ;
+     padding-top: 60px;
+     
+     
+     background-size: cover ;
+     background-repeat: no-repeat ;
+     background-position: 80% 80% ;
+     background-image: url(../images/3.jpg);
+      background-color: rgba(230,13,45,.5);  
+      background-attachment: fixed;
+      position: relative;
+ }
+ .headline-course-name {
+     color: #fff;
+      font-family: 'AUdimatRegular';
+      display: block;
+      padding: 20px 0px 0px 0px  ; 
+      margin: 0px;
+ }
+ .container-of-coursename {
+     position: absolute;
+     top: 0;
+     bottom: 0px;
+     left: 0px;
+     right: 0px;
+     z-index: 50;
+     background: rgba(0,0,0,0.5);
+    
+ }
+ .items {
+     position: relative ;
+     z-index: 60;
+ }
+ .items-video {
+       position: relative ;
+     z-index: 70;
+ }
+ .category-item {
+     display: block ;
+      padding: 5px 10px 5px 10px  ; 
+      margin: 5px;
+      background: #000 ;
+      float: left;
+      color: #fff;
+ }
+ .title-description {
+     float: left;
+      padding: 5px 10px 5px 10px  ; 
+      margin: 5px;
+       color: #fff; 
+ }
+ #video-intreduction {
+     width: 100%;
+     margin: 20px;
+ }
+ 
+ 
+ /*
+ 
+ #player {
+  float:left;
+  padding:1em 1em .5em;
+  background-color:black;
+  border:2px solid darkgreen;
+  border-radius: 9px;
+}
+ 
+#controls {
+  border: 1px solid darkgreen;
+  width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5px;
+  padding-bottom: 3px;
+  border-radius: 7px;
+}
+ 
+video {
+  border:1px solid darkgreen;
+  width:420px;
+  height:231px;
+  background:black;
+}
+ 
+button {
+  text-indent:-9999px;
+  width:16px;
+  height:16px;
+  border:none;
+  cursor:pointer;
+  background:transparent url('buttons.png') no-repeat 0 0;
+}
+ 
+.pause { background-position:-19px 0; }
+.stop { background-position:-38px 0; }
+.volume-plus { background-position:-57px 0; }
+.volume-minus { background-position:-76px 0; }
+.mute { background-position:-95px 0; }
+.unmute { background-position:-114px 0; }
+.replay { background-position:-133px 0; }
+ 
+progress {
+  color: green;
+  font-size: 12px;
+  width: 220px;
+  height: 16px;
+  border: none;
+  margin-right: 40px;
+  background: #434343;
+  border-radius: 9px;
+}
+progress::-moz-progress-bar {
+  color:green;
+  background:#434343;
+}
+ 
+progress[value]::-webkit-progress-bar {
+  background-color: #434343;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+ 
+progress[value]::-webkit-progress-value {
+  background-color: green;
+}*/
