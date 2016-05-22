@@ -1,4 +1,13 @@
- <!-- Loading Page
+<?php
+ ob_start() ;
+ if(session_id() =='')
+     session_start () ;
+ 
+ 
+ ?>
+
+
+<!-- Loading Page
       <div class="loadin-page">
           <div style="margin-top: 20%;" class="windows8">
                     <div class="wBall" id="wBall_1">
@@ -33,12 +42,26 @@
                 </a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  
+                  
+                  <!-- for user out website -->
                   <ul class="nav navbar-nav navbar-right">
                       <li><a href="index.php">HOME</a></li>
                       <li><a href="courses.php">COURSES</a></li>
                       <li><a id="sign-upevent" href="#">SIGN UP</a></li>
                       <li><a id="login-event" href="#">LOG IN</a></li>
                       <li><a href="#">ABOUT US</a></li>
+                  </ul>
+                 <!-- -->
+                  
+                  
+                  <!-- for users inside website
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="index.php">HOME</a></li>
+                      <li><a href="courses.php"> COURSES</a></li>
+                      <li><a href="courses.php">  TRANSACTIONS</a></li>
+                      <li><a href="courses.php">  MY PROFILE</a></li> 
+                       -->
                   </ul>
               </div>
           </div>
@@ -52,21 +75,19 @@
           <div class="close login-section-close-login" id="login-section-close"></div>
           <div class="log-block"> 
                <!-- Errors -->
-               <!--
-              <div class="log-headline">
-                  <h3 class="logheadline">Login</h3>
-              </div>
-              -->
+            
+              <div class="log-headline-in"></div>
+              
               <div class="log-body">
                   <div class="log-body spanner">
                       <span>Email</span>
                   </div>
-                 <input class="input" type="email" name="user-mail" placeholder="username@example.com" />
+                  <input id="user_mail_login" class="input" type="email" name="user-mail" placeholder="username@example.com" />
                  <div class="clearfix"></div>
                  <div class="log-body spanner">
                       <span>Password</span>
                   </div>
-                 <input class="input" type="password" name="user-password" placeholder="Your password" />
+                 <input id="user_password_login" class="input" type="password" name="user-password" placeholder="Your password" />
                </div>
               <div class="log-body">
                   <div class="forget-password">
@@ -74,14 +95,14 @@
                   </div>
               </div>
               <div class="log-body">
-                  <div class="login-btn">
+                  <div onclick="login_user(this);" class="login-btn">
                       Login
                   </div>
               </div>
               <div class="log-body footer-logs">
                   <div class="forget-password sign-s">
                       <span class="ask-about-account" href=""> Don’t have an account? </span>
-                      <button class="btn btn-danger btn-sign">Sign up</button>
+                      <button class="btn btn-danger btn-sign sign-up-fromlogin">Sign up</button>
                    </div>
                </div>
           </div>
@@ -102,54 +123,58 @@
           <div class="close login-section-close-signup" id="login-section-close"></div>
           <div class="log-block signup-block"> 
                <!-- Errors -->
-               <!--
-              <div class="log-headline">
-                  <h3 class="logheadline">Login</h3>
-              </div>
-              -->
+               
+              <div class="log-headline"></div>
+               
               <div class="log-body">
                   <div class="log-body spanner">
                       <span>First Name</span>
                   </div>
-                 <input class="input" type="text" name="user-mail" placeholder="Your first name" />
+                  <input id="co_first_name" class="input" type="text" name="fname-mail" placeholder="Your first name" />
                  
                  <div class="clearfix"></div>
                  <div class="log-body spanner">
                       <span>Second Name</span>
                   </div>
-                 <input class="input" type="natextme" name="user-password" placeholder="Your second name" />
+                 <input class="input" id="co_second_name" type="natextme" name="sname" placeholder="Your second name" />
                  
                  
                  <div class="clearfix"></div>
                  <div class="log-body spanner">
                       <span>Email</span>
                   </div>
-                 <input class="input" type="email" name="user-password" placeholder="your name@example.com" />
+                 <input class="input" id="co_email_name" type="email" name="euser" placeholder="your name@example.com" />
                  
                  <div class="clearfix"></div>
                  <div class="log-body spanner">
                       <span>Password</span>
                   </div>
-                 <input class="input" type="password" name="user-password" placeholder="Your password" />
+                 <input class="input" id="co_password_name" type="password" name="puser" placeholder="Your password" />
                  
                  <div class="clearfix"></div>
                  <div class="log-body spanner">
                       <span>Mobile</span>
                   </div>
-                 <input class="input" type="text" name="user-password" placeholder="Mobile Number" />
+                 <input class="input" id="co_mobile_number_name" type="text" name="muser" placeholder="Mobile Number" />
                  
                </div>
                
               <div class="log-body">
-                  <div class="login-btn">
+                  <div class="login-btn" onclick="return signup_new_user(this);">
                       Sign up
                   </div>
               </div>
               <div class="log-body footer-logs">
                   <div class="forget-password sign-s">
                       <span class="ask-about-account" href=""> Don you have an account? </span>
-                      <button class="btn btn-danger btn-sign">Login</button>
+                      <button class="btn btn-danger btn-sign login-from-sign-up">Login</button>
                    </div>
                </div>
           </div>
       </section>
+      
+      
+      <?php
+ session_write_close();
+ ob_end_flush();
+?>

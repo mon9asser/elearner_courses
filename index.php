@@ -213,5 +213,6 @@
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript" src="slick/slick.js"></script>
     <script type="text/javascript" src="js/application.js"> </script>
+   
   </body>
 </html>

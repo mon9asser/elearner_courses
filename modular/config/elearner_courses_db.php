@@ -28,11 +28,11 @@ class database {
         return false ;   
     }
     
-    protected function open_connection(){
+    public function open_connection(){
         return $this->database_open_conx();
     }
     
-    protected function close_connection (){
+    public function close_connection (){
         if($this->open_connection() == TRUE)
            return @mysqli_close ($this->db_connection);
     }

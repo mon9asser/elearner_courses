@@ -7,7 +7,7 @@ if(session_id() =='' )
  *
  * @author Montasser Mossallem
  */
-$db_file = dirname(__FILE__)."/../config/elearner_courses_db.php" ;
+$db_file = dirname(__FILE__)."/../modular/config/elearner_courses_db.php" ;
 if(is_file($db_file))
     require_once $db_file ;
 class login_controler extends database {
@@ -55,13 +55,15 @@ class login_controler extends database {
            header('location: ../index.php');
            exit(1);
        }
-       $user_info = [
+        $user_info = [
            'id' => $user_exists->id,
            'first_name' => $user_exists->first_name,
            'second_name'=> $user_exists->second_name,
            'curr_activation_code'=> $user_exists-> curr_activation_code,
            'is_admin'=> $user_exists->is_admin,
+           'email'=> $user_exists->email,
            'is_disabled'=> $user_exists->is_disabled
+               
        ] ;
        $_SESSION['user_info'] = $user_info  ;
       if($user_exists != NULL )
@@ -71,6 +73,39 @@ class login_controler extends database {
     
 }
 
+$mail = $_POST['email'] ;
+$pass = $_POST['password'] ;
+if(isset($mail))
+{
+   if($mail == NULL )
+   {
+       echo "EMAILS_REQUIRED";
+       return false ;
+   }
+   
+}
+
+
+if(isset($pass))
+{
+   if($pass == NULL )
+   {
+       echo "PASSWORD_REQUIRED";
+       return false ;
+   }
+   
+}
+
+if ($pass != '' and $mail !='')
+{
+    $args  = [
+        'user_mail'=>$mail , 
+        'user_password'=>$pass
+    ];
+    
+   new login_controler($args);
+}
+//user_password
 session_write_close() ;
 ob_end_flush() ;
 ?>

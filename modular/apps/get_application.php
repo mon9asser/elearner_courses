@@ -30,14 +30,11 @@ class get_applications extends database {
             return NULL ;
         
         if(mysqli_num_rows($query) == 0)
-            {
-                 return FALSE ;
-            }
+            return NULL  ; 
         
        $arrList = [];
-       for ($i=0; $i <count(mysqli_num_rows($query));$i++)
-       
-       $arrList[@count($arrList)] = mysqli_fetch_object ($query);
+       for ($i=0; $i < mysqli_num_rows($query) ;$i++)
+        $arrList[@count($arrList)] = mysqli_fetch_object ($query);
        $this->close_connection();
        return $arrList ;
      }

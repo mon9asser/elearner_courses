@@ -6,11 +6,17 @@
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         
                         <ul class="nav pull-right">
-                             <li class="nav-user dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="images/user.png" class="nav-avatar" />
-                                 </a>
-                             </li>
+                            <li><a href="#">Support </a></li>
+                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="images/user.png" class="nav-avatar" />
+                                <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Your Profile</a></li>
+                                    <li><a href="#">Edit Profile</a></li>
+                                     <li class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.nav-collapse -->

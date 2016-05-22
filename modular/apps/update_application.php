@@ -58,12 +58,12 @@ class update_application extends database  {
                     }
                      
                   // Update Query String 
-                   $modifyQueryString = "Update `{$table}` SET {$targetVal} WHERE ".$columnsCompar;
+                    $modifyQueryString = "Update `{$table}` SET {$targetVal} WHERE ".$columnsCompar;
                   $queryDo = mysqli_query($this->open_connection(), $modifyQueryString ) ;
-                   ini_set('mysql.connect_timeout', 300);
-                    ini_set('default_socket_timeout', 300);
+                    
                   if(!$queryDo )
-                      throw new SW_Exception_Module ("Your Data Not updated Please Try Later".mysqli_error($this->Open_Connection()));
+                     {  echo "<span color='tomato'>Your Data Not updated Please Try Later</span>"; return FALSE; }
+                    
                   $this->close_connection();
                   return TRUE ;
             }
