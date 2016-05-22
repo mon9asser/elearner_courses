@@ -147,7 +147,7 @@
                             <span class="lect_name">Course Overview</span>
                         </a>
                     </td>
-                    <td>
+                   <td class="text-right">
                         <span class="lect_minutes">05:50 </span>
                       </td>
                 </tr>
@@ -161,7 +161,7 @@
                             <span class="lect_name"> 	How Wordpress Works</span>
                         </a>
                     </td>
-                    <td>
+                    <td class="text-right">
                         <span class="lect_minutes">02:45 </span>
                       </td>
                 </tr>
@@ -175,7 +175,7 @@
                             <span class="lect_name"> 	Sample Website</span>
                         </a>
                     </td>
-                    <td>
+                   <td class="text-right">
                         <span class="lect_minutes">10:00 </span>
                       </td>
                 </tr>
@@ -189,7 +189,7 @@
                             <span class="lect_name"> 	Wordpress Administrative Interface</span>
                         </a>
                     </td>
-                    <td>
+                    <td class="text-right">
                         <span class="lect_minutes">15:00 </span>
                       </td>
                 </tr>
@@ -203,7 +203,7 @@
                             <span class="lect_name"> 	Responsive Theme Home Page Configuration</span>
                         </a>
                     </td>
-                    <td>
+                   <td class="text-right">
                         <span class="lect_minutes">07:00 </span>
                       </td>
                 </tr>
@@ -216,7 +216,7 @@
                             <span class="lect_name"> 	Creating Your Blog Page and Primary Menu</span>
                         </a>
                     </td>
-                    <td>
+                   <td class="text-right">
                         <span class="lect_minutes">13:45 </span>
                       </td>
                 </tr>
@@ -228,7 +228,7 @@
                             <span class="lect_name disabled">	 Switching Between Standard and HTML Editing Modes</span>
                         </a>
                     </td>
-                    <td>
+                    <td class="text-right">
                         <span class="lect_minutes">16:00 </span>
                       </td>
                 </tr>
