@@ -41,7 +41,72 @@
                     <!-- End Menu bar item -->
                 </div>
                 <div class="span9">
-                     Contents
+                  
+                    <div class="header-block">
+                        <h1>Manage Courses</h1>
+                    </div>
+                   
+                    <div class="header-block">
+                          <h3>Categories</h3>
+                          <b style="color: teal;">Add Category</b>
+                        <table class="table">
+                            <tr>
+                                <td>
+                                      <input placeholder="Category Name" id="categoryName" />
+                                      <div id="addCategory" class="btn btn-primary">Save Category</div>
+                                </td>
+                             </tr>
+                        </table>
+                         <b style="color: teal;">List Of Categories</b>
+                                    <table class="table">
+                                        <tr class="success">
+                                             
+                                            <td class="tbColumn">Categories</td>
+                                            <td class="tbColumn">Count Of Courses</td>
+                                            <td class="tbColumn">Add new Course</td>
+                                             <td class="tbColumn">Edit</td>
+                                            <td class="tbColumn">
+                                                Delete 
+                                            </td>
+                                        </tr>
+                                        
+                                        <?php
+                                              $category_module = dirname(__FILE__)."/../modular/apis/category_apis.php";
+                                                if(is_file($category_module ))  require_once  $category_module ;
+                                                $apis_categories = new category_apis() ;
+                                                if(count($apis_categories) == 0 )
+                                                    return false ;
+                                                
+                                                $cat = $apis_categories->category_apis_apis_get_all() ;
+                                        ?>
+                                        <?php for($i=0; $i<count($cat ); $i++){ ?>
+                                        
+                                          <tr>
+                                            
+                                              
+                                          
+                                            <td><input style="background: transparent; border: 0px;" class="catId<?php echo $cat[$i]->id ; ?>" value="<?php echo $cat[$i]->category_name ; ?>" type="text" /></td>
+                                            <td></td>
+                                            <td class="">
+                                                <center>
+                                                    <a href="add_new_course.php?categoryId=<?php echo $cat[$i]->id ; ?>" class="btn btn-success">Add New </a>
+                                                </center>
+                                            </td>
+                                            <td> <span class="btn btn-info" onclick="update_category(<?php echo $cat[$i]->id ; ?>,'catId<?php echo $cat[$i]->id ; ?>');">Save Edits </span></td>
+                                            <td>
+                                                <span onclick="delete_category(<?php echo $cat[$i]->id ; ?>)" class="btn btn-danger">Delete</span>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </table>
+                    </div>
+                     
+                    
+                    <div class="header-block">
+                          <h3>
+                        List Of Courses
+                        </h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,7 +125,67 @@
 <script src="scripts/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-       
+        
+        // Add new Category
+        $('#addCategory').click(function (){
+             var category_name = $('#categoryName') ;
+            if(category_name.val() == '' ){
+                $('#categoryName').css('border','1px solid tomato');
+                return false ;
+            }
+             else 
+                $('#categoryName').css('border','1px solid #dfdfdf'); 
+            
+            var dataString = {
+                'proccess_type':'add',
+                'category_name':category_name.val()
+            }
+            $.ajax({
+                url : 'controler/category_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                beforeSend : function (){
+                    $('#addCategory').html('Saving Data');
+                } ,
+                success : function (data){
+                     $('#addCategory').html(data);
+                     window.location.href = "toutorials.php";
+                }
+            });
+        }); 
+        
+        //Delete Category
+        window.delete_category = function (id){
+            var dataString = {
+                'proccess_type':'delete',
+                'category_id': id
+            }
+            $.ajax({
+                url : 'controler/category_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+        // Update Category
+        window.update_category = function (id , class_id) {
+            var dataString = {
+                'proccess_type':'update',
+                'category_id': id ,
+                'target_value_updated' : $('.'+class_id).val()
+            }
+            
+            $.ajax({
+                url : 'controler/category_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
   
     });
 </script>

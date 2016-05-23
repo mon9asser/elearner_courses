@@ -14,6 +14,11 @@ class elearner_courses_tbl {
    }
    
    
+   private static $table_category_setting = 'categories';
+   protected function category_tbl (){
+        return elearner_courses_tbl::$table_category_setting;  
+   }
+   
    private static $table_video = 'video_inprogress';
    protected function video_table (){
        return elearner_courses_tbl::$table_video;  

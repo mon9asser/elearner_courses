@@ -3,7 +3,7 @@
  if(session_id() =='')
      session_start () ;
  
- ob_start() ;
+ 
  ?>
 
 
@@ -176,5 +176,5 @@
       
       <?php
  session_write_close();
- ob_end_flush();
+ 
 ?>

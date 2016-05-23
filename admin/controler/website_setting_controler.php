@@ -1,5 +1,5 @@
 <?php
-    $file_websitesetting = dirname(__FILE__)."/../../modular/apis//website_setting_apis.php";
+    $file_websitesetting = dirname(__FILE__)."/../../modular/apis/website_setting_apis.php";
     if(is_file($file_websitesetting ))  require_once  $file_websitesetting ;
    
     $websetting_apis = new website_setting_apis() ;
