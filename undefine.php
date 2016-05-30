@@ -1,3 +1,11 @@
+
+ <?php
+
+            $fileAccss = dirname(__FILE__)."/privates/private_access.php";
+            if(is_file($fileAccss ))    require_once $fileAccss  ;
+
+      ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,7 +40,6 @@
       ?>
       
       
-       
       
       
       <section style="background: #fff;height: auto; margin-top: 90px;" class="feauture_skills">
@@ -68,5 +75,6 @@
     <script type="text/javascript" src="slick/slick.js"></script>
     <script type="text/javascript" src="js/application.js"> </script>
    
+      
   </body>
 </html>

@@ -106,6 +106,63 @@
                           <h3>
                         List Of Courses
                         </h3>
+                        <table class="table">
+                                        <tr class="success">
+                                             
+                                            <td class="tbColumn">Course Name</td>
+                                             <td class="tbColumn">Add new Lesson</td>
+                                             <td class="tbColumn">Edit</td>
+                                            <td class="tbColumn">
+                                                Delete 
+                                            </td>
+                                            <td class="tbColumn">
+                                                Type 
+                                            </td>
+                                        </tr>
+                                        
+                                        <?php
+                                               
+                                            $course_key_file = dirname(__FILE__)."/../modular/apis/course_tutorial_key_apis.php"; 
+                                               if(is_file($course_key_file)) require_once  $course_key_file ;
+                                              
+                                               $course_apis = new course_tutorial_title();
+                                               $cou =  $course_apis->coursetutkey_application_apis_get_all();
+                                               if(count($cou) == 0 )
+                                                    return false ;
+                                                
+                                                
+                                        ?>
+                                        <?php for($i=0; $i<count($cou ); $i++){ ?>
+                                        
+                                          <tr>
+                                            
+                                              
+                                          
+                                            <td><input style="background: transparent; border: 0px;" class="courseId<?php echo $cou[$i]->id ; ?>" value="<?php echo $cou[$i]->course_name ; ?>" type="text" /></td>
+                                            
+                                            <td class="">
+                                                <center>
+                                                    <a href="add_new_lesson.php?courseId=<?php echo $cou[$i]->id ; ?>" class="btn btn-success">Add New </a>
+                                                </center>
+                                            </td>
+                                            <td> <span class="btn btn-info" onclick="update_course(<?php echo $cou[$i]->id ; ?>,'courseId<?php echo $cou[$i]->id ; ?>');">Save Edits </span></td>
+                                            <td>
+                                                <span onclick="delete_course(<?php echo $cou[$i]->id ; ?>)" class="btn btn-danger">Delete</span>
+                                            </td>
+                                            <td>
+                                                <select onchange="update_course_type(<?php echo $cou[$i]->id ; ?>,'selectId<?php echo $cou[$i]->id ; ?>',this);">
+                                                   <?php if($cou[$i]->is_feature == 0){ ?>
+                                                    <option value="0">Normal courses</option>
+                                                    <option value="1">Feature courses </option>
+                                                    <?php }else if($cou[$i]->is_feature == 1){ ?>
+                                                     <option value="1">Feature courses </option>
+                                                     <option value="0">Normal courses</option>
+                                                    <?php } ?>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </table>
                     </div>
                 </div>
             </div>
@@ -125,7 +182,21 @@
 <script src="scripts/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        
+        window.update_course_type  = function (courseId , elementId, elementValue){
+           var dataStrings = {
+                'proccess_type':'update2',
+                'course_id': courseId ,
+                'elementVal' : elementValue.value
+            }
+              $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataStrings  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
         // Add new Category
         $('#addCategory').click(function (){
              var category_name = $('#categoryName') ;
@@ -152,7 +223,39 @@
                      window.location.href = "toutorials.php";
                 }
             });
-        }); 
+        }); // ADD new data fielsa 
+        
+        //Delete Courses
+        window.delete_course = function (id){
+            var dataString = {
+                'proccess_type':'delete',
+                'course_id': id
+            }
+            $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+         // Update Course
+        window.update_course = function (id , class_id) {
+            var dataStrings = {
+                'proccess_type':'update',
+                'course_id': id ,
+                'target_value_updated' : $('.'+class_id).val()
+            }
+              $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataStrings  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
         
         //Delete Category
         window.delete_category = function (id){
@@ -169,6 +272,8 @@
                 }
             }); 
         }
+        
+       
         // Update Category
         window.update_category = function (id , class_id) {
             var dataString = {

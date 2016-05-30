@@ -13,7 +13,7 @@ if(is_file($tbl_applications ))    require_once $tbl_applications ;
 $application_file = dirname(__FILE__)."/../apps/application_autoload.php";
 if(is_file($application_file))    require_once $application_file ;
         
-class user_apis extends elearner_courses_tbl  {
+class paypalsetting_apis extends elearner_courses_tbl  {
     // TABLE
     private function table(){ return $this->paypal_setting_tbl();}
    

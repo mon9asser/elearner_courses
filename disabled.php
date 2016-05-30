@@ -31,8 +31,7 @@
         if(is_file($header_file))   require_once $header_file ;
       ?>
       
-      
-       
+     
       
       
       <section style="background: #fff;height: auto; margin-top: 90px;" class="feauture_skills">
@@ -68,5 +67,6 @@
     <script type="text/javascript" src="slick/slick.js"></script>
     <script type="text/javascript" src="js/application.js"> </script>
    
+       
   </body>
 </html>

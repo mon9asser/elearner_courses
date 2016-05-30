@@ -1,13 +1,13 @@
 <?php
  
+
  if(session_id() =='')
      session_start () ;
  
  
  ?>
 
-
-<!-- Loading Page
+ 
       <div class="loadin-page">
           <div style="margin-top: 20%;" class="windows8">
                     <div class="wBall" id="wBall_1">
@@ -27,7 +27,7 @@
                     </div>
             </div>
       </div>
-     -->
+   
       <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
               <div class="navbar-header">
@@ -44,25 +44,32 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   
                   
-                  <!-- for user out website -->
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a href="index.php">HOME</a></li>
-                      <li><a href="courses.php">COURSES</a></li>
-                      <li><a id="sign-upevent" href="#">SIGN UP</a></li>
-                      <li><a id="login-event" href="#">LOG IN</a></li>
-                      <li><a href="#">ABOUT US</a></li>
-                  </ul>
-                 <!-- -->
+                 
                   
+                  <?php
+                    if(isset($_SESSION['user_info'])){
+                        ?>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="courses.php"> Courses</a></li>
+                            <li><a href="transactions.php">  Transactions</a></li>
+                            <li><a href="user_setting.php"><?php echo $_SESSION['user_info']['first_name']; ?></a></li>
+                            <li><a href="logout.php">  Logout</a></li> 
+                         </ul>
+                        <?php
+                    }else {
+                        ?>
+                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.php">HOME</a></li>
+                            <li><a href="courses.php">COURSES</a></li>
+                            <li><a id="sign-upevent" href="#">SIGN UP</a></li>
+                            <li><a id="login-event" href="#">LOG IN</a></li>
+                            <li><a href="#">ABOUT US</a></li>
+                        </ul>
+                        <?php
+                    }
+                  ?>
                   
-                  <!-- for users inside website
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a href="index.php">HOME</a></li>
-                      <li><a href="courses.php"> COURSES</a></li>
-                      <li><a href="courses.php">  TRANSACTIONS</a></li>
-                      <li><a href="courses.php">  MY PROFILE</a></li> 
-                       -->
-                  </ul>
               </div>
           </div>
       </nav>

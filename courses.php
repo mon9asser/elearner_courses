@@ -1,3 +1,11 @@
+
+
+ <?php
+
+            $fileAccss = dirname(__FILE__)."/privates/private_access.php";
+            if(is_file($fileAccss ))    require_once $fileAccss  ;
+
+      ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +18,10 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.css">
+    <!--
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link href="css/home.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -30,8 +41,7 @@
         $header_file = dirname(__FILE__)."/parts/header.php";
         if(is_file($header_file))   require_once $header_file ;
       ?>
-      
-      
+     
       
      <section class="container-fluid testmonalisa tester">
          <div class="container-fluid" style="margin-top: -30px; margin-left: 100px;">
@@ -42,233 +52,68 @@
                         <div class="search-block"></div>
                       </h1>
                   </div>
+                  <!-- 
                   <div class="col-xs-12">
                        <input type="text" class="form-control forma" id="exampleInputEmail1" placeholder="Seach by course name or by category name then hit enter">
                   </div>
+                  -->
                </div> 
           </div>
          <div class="container">
-               <div class="feauture-course-container text-center shadows">
+             <?php
+                $file_coursr = dirname(__FILE__)."/modular/apis/course_tutorial_key_apis.php";
+                if(is_file($file_coursr)) require_once $file_coursr ;
+                
+                $file_category = dirname(__FILE__)."/modular/apis/category_apis.php";
+                if(is_file($file_category)) require_once $file_category ;
+                
+                $modul = new course_tutorial_title();
+                $course_title =  $modul->coursetutkey_application_apis_get_all() ;
+                
+                
+                  $is_featured_courses =  $modul->coursetutkey_application_get_by_values(['is_feature'=>1], 'and');
+                
+           for($i=  count($course_title)-1; $i >= 0; $i--){ ?>
+             <a href="tuts.php?course_id=<?php echo $course_title[$i]->id;?>" class="feauture-course-container text-center shadows">
                         <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
+                            <div style="background-image: url(<?php echo $course_title[$i]->course_intro_image; ?>);" class="img-course-block">
                              <div class="mask-layer-courses"></div>
                             </div>
                         </div>
                         <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
+                            <?php
+                                echo $course_title[$i]->course_name ;
+                            ?>
                         </b>
                         <p class="Category text-left">
-                            <b>Programming language</b>
+                            <b>
+                                <?php
+                                    $cat = new category_apis();
+                                     $category =  $cat->category_apis_check_exist(['id'=>$course_title[$i]->category_id]);
+                                     if($category != NULL )
+                                         echo $category->category_name ;
+                                ?>
+                            </b>
                         </p>
                         <p class="descripe-course-feauture">
                             <span class="groups">
                                 <i class="fa fa-group"></i>
-                                15
+                               
                             </span>
                             <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
+                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                 <?php
+                                    echo $course_title[$i]->course_price ;
+                                ?>
                              </span>
                         </p>
-                </div>
-                <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-                <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
-             <div class="feauture-course-container text-center shadows">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                </div>
+                </a>
+               <?php }
+             ?>
+               
+                  
          </div>
+         <!--
          <div class="container text-center">
              <span class="pagination">Previous</span>
              <span class="pagination selected">1</span>
@@ -279,6 +124,7 @@
              <span class="pagination">6</span>
              <span class="pagination">Next</span>
          </div> 
+         -->
      </section>
       
       <section class="feauture_skills">
@@ -304,18 +150,31 @@
           <div class="container">
               <div class="single-item">
                   
-                <div>
+                
+                  
+                   <?php for($i=  count($is_featured_courses)-1; $i >= 0; $i--){ ?>
+               
+                  <a href="tuts.php?course_id=<?php echo $is_featured_courses[$i]->id;?>">
                     <div class="feauture-course-container text-center">
                         <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
+                             <div style="background-image: url(<?php echo $is_featured_courses[$i]->course_intro_image; ?>);" class="img-course-block">
                              <div class="mask-layer-courses"></div>
                             </div>
                         </div>
                         <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
+                              <?php
+                                echo $is_featured_courses[$i]->course_name ;
+                            ?>
                         </b>
                         <p class="Category text-left">
-                            <b>Programming language</b>
+                            <b>
+                                <?php
+                                    $cat = new category_apis();
+                                     $category =  $cat->category_apis_check_exist(['id'=>$is_featured_courses[$i]->category_id]);
+                                     if($category != NULL )
+                                         echo $category->category_name ;
+                                ?>
+                            </b>
                         </p>
                         <p class="descripe-course-feauture">
                             <span class="groups">
@@ -323,226 +182,28 @@
                                 15
                             </span>
                             <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
+                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                 <?php
+                                    echo $is_featured_courses[$i]->course_price ;
+                                ?>
                              </span>
                         </p>
                     </div>
-                </div>
-                  
-                  
-               <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                  <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                  <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                  <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                  <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                  <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                  <div>
-                    <div class="feauture-course-container text-center">
-                        <div class="image-container">
-                            <div style="background-image: url(courses_covers/course-9-450x450.jpg);" class="img-course-block">
-                             <div class="mask-layer-courses"></div>
-                            </div>
-                        </div>
-                        <b class="course-name-container">
-                             Become a PHP Master and <br />Make Money Fast
-                        </b>
-                        <p class="Category text-left">
-                            <b>Programming language</b>
-                        </p>
-                        <p class="descripe-course-feauture">
-                            <span class="groups">
-                                <i class="fa fa-group"></i>
-                                15
-                            </span>
-                            <span class="price-course-feauture">
-                                <i class="fa fa-usd" aria-hidden="true"></i>100
-                             </span>
-                        </p>
-                    </div>
-                </div>
-                  
-                  
-                  
-                   
+                </a>
                   
                    
                    
-                  
+                   
+                <?php } ?>
                   
                   
                   
                   
                   
                 </div>
-                  
-              
-              
-              
-              
-              
-              
-              
-              
-              
-                    
+                   
               </div>
-          </div>
+   
       </section>
       
        <!-- -------------------------------------------------------------- -->
@@ -566,7 +227,8 @@
     <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="slick/slick.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <!-- <script type="text/javascript" src="slick/slick.js"></script> -->
     <script type="text/javascript" src="js/application.js"> </script>
     
   </body>

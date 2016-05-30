@@ -66,4 +66,5 @@ class course_tuts_apis extends elearner_courses_tbl  {
     }
 }
   
+ 
 ?>

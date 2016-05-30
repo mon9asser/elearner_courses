@@ -80,25 +80,20 @@
                               <tr>
                                 <td>Course Name</td>
                                 <td>
-                                    <input placeholder="Course Title" name="course_name" class="input_s" type="text" />
+                                    <input placeholder="Course Title" name="course_name" id="course_name" class="input_s" type="text" />
                                 </td>
                               </tr>
                               <tr>
                                 <td>Course Description</td>
                                 <td>
-                                    <textarea placeholder="Be descreptive" name="course_description"></textarea>
+                                    <textarea placeholder="Be descreptive" name="course_description" id="course_description"></textarea>
                                 </td>
                               </tr>
-                              <tr>
-                                <td>Course Video Cover</td>
-                                <td>
-                                    <input name="video_cover"  class="input_s" type="file" />
-                                </td>
-                              </tr>
+                             
                               <tr>
                                 <td>Course Image Cover</td>
                                 <td>
-                                    <input name="image_cover"  class="input_s" type="file" />
+                                    <input name="image_cover" id="image_cover"  class="input_s" type="file" />
                                  </td>
                               </tr>
                               <tr>
@@ -106,19 +101,19 @@
                                 <td>
                                     <input placeholder="Price of Course" value="<?php echo $_GET{'categoryId'}; ?>" name="category_name" class="input_s" type="hidden" />
                                     <input placeholder="Price of Course" value="add" name="access_type" class="input_s" type="hidden" />
-                                    <input placeholder="Price of Course" name="price_ofcourse" class="input_s" type="text" />
+                                    <input placeholder="Price of Course" name="price_ofcourse" id="price_ofcourse" class="input_s" type="text" />
                                  </td>
                               </tr>
                               <tr>
                                 <td>Course For</td>
                                 <td>
-                                    <textarea placeholder="Insert this char (&) between each line" name="course_for"></textarea>
+                                    <textarea placeholder="Insert this char (&) between each line" name="course_for" id="course_for"></textarea>
                                 </td>
                               </tr>
                               <tr>
                                 <td>Course Will Learn</td>
                                <td>
-                                    <textarea placeholder="Insert this char (&) between each line" name="course_will_learn"></textarea>
+                                    <textarea placeholder="Insert this char (&) between each line" name="course_will_learn" id="course_will_learn"></textarea>
                                 </td>
                               </tr>
                                
@@ -126,11 +121,7 @@
                            
                           
                               <div class="header-block">
-                                    <div class="progress">
-                                         <div class="bar"></div >
-                                         <div class="percent">0%</div >
-                                    </div>
-                                    <div id="status"></div>
+                                     <div id="status"></div>
                                </div>
                               
                               <div class="header-block text-right">
@@ -168,7 +159,22 @@
  
      
        $('#add_new_course').ajaxForm({
+
             beforeSend: function() {
+                
+            var course_name = document.getElementById('course_name').value;
+            var course_description = document.getElementById('course_description').value;
+            var image_cover = document.getElementById('image_cover').value;
+            var price_ofcourse = document.getElementById('price_ofcourse').value;
+            var course_for = document.getElementById('course_for').value;
+            var course_will_learn = document.getElementById('course_will_learn').value;
+            
+             if(
+                 course_name =="" || course_description =="" || image_cover =="" || price_ofcourse ==""
+                 || course_for =="" || course_will_learn ==""
+                )    
+            abort();
+                 
             status.empty();
             var percentVal = '0%';
             bar.width(percentVal);
@@ -180,7 +186,11 @@
             percent.html(percentVal);
         },
         complete: function(xhr) {
-            status.html(xhr.responseText);
+             
+            setTimeout(function (){
+               window.location.href ="toutorials.php"; 
+            }, 2000 );
+                 
         }
        }); 
     });

@@ -258,7 +258,7 @@ body{
 .feauture-course-container {
     width: 77%;
       cursor: pointer;
-    height: 330px;
+    height: auto;
    border: 1px solid #fff;
    overflow: hidden;
    position: relative;
@@ -972,6 +972,7 @@ padding-bottom: 10px;
      margin: 8px;
      width: 260px;
      display: inline-block;
+     height: auto;
  }
  .pagination {
      padding: 3px 8px;
@@ -1154,8 +1155,7 @@ margin: 8px;
  .imgVideo {
      width: 700px;
      height: 400px;
-     background:rgba(0,0,0, 0.5);
-     display: block;
+      display: block;
      margin: 25px;
      overflow: hidden ;
      position: relative;
@@ -1320,3 +1320,59 @@ margin: 8px;
 tr {
     cursor: pointer;
 }
+
+#intoduction-video {
+    width: 100%;
+    height: 100%;
+}
+.transactionBlock {
+    width: 30%;
+    display: inline-block;
+    margin: 10px auto ;
+    overflow: hidden;
+     border: 1px solid #dfdfdf;
+     box-shadow: 0px 0px 5px 0px #dfdfdf;
+}
+.headline {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+     border-bottom: 1px solid #dfdfdf;
+}
+.headline h3 {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    font-family: 'MuseoSans_900';
+    padding: 12px 5px;
+    float: left ;
+}
+
+.nameHeadline {
+    font-family: 'MuseoSans_500';
+}
+.paymentId {
+    float: right;
+    position: relative;
+   display: inline-block;
+   margin-top: 15px;
+   margin-right: 5px;
+}
+.lecture {
+    position: fixed ;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: inline-flex;
+    display:none;
+     z-index: 200000;
+    background: rgba(0,0,0,.9);
+}
+.lecture #intoduction-video {
+     height: auto;
+     margin: 0px auto;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    cursor: pointer;
+ }

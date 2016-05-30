@@ -320,3 +320,10 @@ textarea {
  width: 100%; 
 height: 60px;
 }
+
+ 
+.jFiler , .jFiler-theme-dragdropbox {
+    width: 100%;
+    display: block;
+}
+ 

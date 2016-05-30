@@ -28,16 +28,15 @@
                           </li>
                           -->
                           <li>
-                              <a href="messages.php">
+                              <a href="mail.php">
                                   <i class="menu-icon icon-envelope"></i>
-                                  user messages
-                                   
+                                  Send emails
                               </a>
                           </li>
                           <li>
-                              <a href="transactions.php">
+                              <a href="paypal.php">
                                   <i class="menu-icon icon-trophy"></i>
-                                  Manage transactions
+                                  Paypal setting
                                    
                               </a>
                           </li>

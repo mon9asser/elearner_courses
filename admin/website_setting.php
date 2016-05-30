@@ -65,7 +65,7 @@
                                  
                                  <div class="form-control">
                                      <label class="name-name">Website <br /> Availability</label>
-                                     <select id="website-setting-availability" class="input-form data-indding">
+                                     <select onchange="website_available(this);" id="website-setting-availability" class="input-form data-indding">
                                          <option value="0">Online</option>
                                          <option value="1">Offline</option>
                                       </select>
@@ -74,6 +74,43 @@
                                      <!-- receiving success -->
                                      <div class="loading-results"> </div>
                                      <button onclick="save_website_setting_data();" class="btn btn-primary input-innary">
+                                         Save Data
+                                     </button>
+                                 </div>
+                              </div>
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             <div class="form-vertical">
+                                 <h3>Paypal Settings</h3>
+                                 <div class="form-control">
+                                     <label class="name-name">Client Id</label>
+                                     <input id="website-paypal-client-id" style="" class=" input-form" />
+                                 </div>
+                                 
+                                 <div class="form-control">
+                                     <label class="name-name">Secret Id</label>
+                                     <textarea id="website-paypal-secret-id" style="" class=" input-form"></textarea>
+                                 </div>
+                                 
+                                 <div class="form-control">
+                                     <label class="name-name">Paypal Mode</label>
+                                     <input id="website-paypal-mode" placeholder="Example:- programming course , italian course , design , etc" style="" class=" input-form" />
+                                 </div>
+                                  
+                                 <div class="form-control"> 
+                                     <!-- receiving success -->
+                                     <div class="loading-results"> </div>
+                                     <button onclick="save_paypal_website_setting_data();" class="btn btn-primary input-innary">
                                          Save Data
                                      </button>
                                  </div>
@@ -100,10 +137,14 @@
 <script type="text/javascript">
     $(document).ready(function(){
         
-        $('#website-setting-availability').one('change',function (){
+        
+        
+        window.website_available = function (data){
+            
            var dataString = {
-               'website_availbility':document.getElementById('website-setting-availability').value 
+               'website_availbility':data.value 
            }
+           
            $.ajax({
                      url : 'controler/website_setting_controler.php'  ,
                      type : 'POST' , 
@@ -119,9 +160,7 @@
                     });  
                     
                     
-        });
-        
-        
+        }
         window.save_website_setting_data = function (){
                 var dataString ;
                 
@@ -148,6 +187,30 @@
                     });  
         }
         
+        
+        window.save_paypal_website_setting_data = function (){
+               var dataString ;
+                dataString = {
+                          'website-paypal-client-id':document.getElementById('website-paypal-client-id').value ,
+                         'website-paypal-secret-id':document.getElementById('website-paypal-secret-id').value ,
+                         'website-paypal-mode': document.getElementById('website-paypal-mode').value  
+                      };
+                     
+                     
+               $.ajax({
+                     url : 'controler/paypal_settings.php'  ,
+                     type : 'POST' , 
+                     data : dataString ,
+                     beforeSend : function (){
+                         $('.loading-results').css('color','tomato');
+                         $('.loading-results').html('Saving Data, please wait ...');
+                     } ,
+                     success: function (responsed){
+                         $('.loading-results').css('color','Green');
+                         $('.loading-results').html(responsed);
+                      }
+                    });  
+        }
   
     });
 </script>

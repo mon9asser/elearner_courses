@@ -31,7 +31,7 @@ class elearner_courses_tbl {
    }
 
 
-   private static $table_course_tutorial = 'course_tutorial_key ';
+   private static $table_course_tutorial = 'course_tutorial_key';
    protected function course_tutorial_key_tbl(){
        return elearner_courses_tbl::$table_course_tutorial;  
    }
@@ -53,7 +53,13 @@ class elearner_courses_tbl {
    protected function website_setting_tbl (){
         return elearner_courses_tbl::$table_website_setting; 
    }
-   
+  
+   private static $table_transactions = 'transaction';
+   protected function transactions_tbl (){
+        return elearner_courses_tbl::$table_transactions; 
+   }
+
+
    private static $table_contact_info = 'contact_info';
    protected function contact_information_tbl (){
        return elearner_courses_tbl::$table_contact_info; 

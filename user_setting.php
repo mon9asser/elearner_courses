@@ -1,3 +1,11 @@
+
+ <?php
+
+            $fileAccss = dirname(__FILE__)."/privates/private_access.php";
+            if(is_file($fileAccss ))    require_once $fileAccss  ;
+
+      ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
