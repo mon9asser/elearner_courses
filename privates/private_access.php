@@ -2,8 +2,7 @@
  /*
   * This acess for define who is paid to course , to secure all courses without paid 
   */
-
- ob_start();
+@ob_start();
  if(session_id() =='')
      session_start () ;
  // check about public access 
