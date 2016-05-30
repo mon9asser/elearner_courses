@@ -1,9 +1,4 @@
-<?php
-      session_start () ;
  
- 
- ?>
-
  
       <div class="loadin-page">
           <div style="margin-top: 20%;" class="windows8">
@@ -178,8 +173,4 @@
       </section>
       
       
-      <?php
-  
- session_write_close();
  
-?>
