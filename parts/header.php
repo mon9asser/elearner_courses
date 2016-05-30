@@ -1,6 +1,6 @@
 <?php
+ @ob_start(); 
  
-ob_start();
  if(session_id() =='')
      session_start () ;
  
@@ -182,7 +182,7 @@ ob_start();
       
       
       <?php
-                   ob_end_flush();
+                       ob_end_flush();
  session_write_close();
  
 ?>
