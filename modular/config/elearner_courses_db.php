@@ -10,9 +10,9 @@
 class database {
     private $db_connection =  NULL ;
     private static $HOST_NAME = "localhost";
-    private static $DB_NAME = "mon2000_courses";
-    private static $DB_USER_NAME = "mon2000_mon2000";
-    private static $DB_PASSWORD= "bobsushi666666";
+    private static $DB_NAME = "mon2000_sweegy";
+    private static $DB_USER_NAME = "mon2000_sweegy";
+    private static $DB_PASSWORD= "666666";
     
     
 
