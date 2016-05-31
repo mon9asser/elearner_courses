@@ -1,9 +1,7 @@
 
 
  <?php
-
  
- ob_start() ;
  if(session_id() =='')
      session_start ();
  
@@ -240,7 +238,4 @@
   </body>
 </html>
 
-
-<?php 
-ob_end_flush() ;
-?>
+ 
