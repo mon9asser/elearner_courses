@@ -184,23 +184,9 @@ session_start () ;
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        window.update_course_type  = function (courseId , elementId, elementValue){
-           var dataStrings = {
-                'proccess_type':'update2',
-                'course_id': courseId ,
-                'elementVal' : elementValue.value
-            }
-              $.ajax({
-                url : 'controler/course_controler.php' ,
-                type : 'POST' ,
-                data : dataStrings  ,
-                 success : function (data){
-                      window.location.href = "toutorials.php";
-                }
-            }); 
-        }
-        // Add new Category
+    
+    
+     // Add new Category
        function  addCategory    (){
              var category_name = $('#categoryName') ;
             if(category_name.val() == '' ){
@@ -227,6 +213,26 @@ session_start () ;
                 }
             });
         }  // ADD new data fielsa 
+        
+        
+        
+    $(document).ready(function(){
+        window.update_course_type  = function (courseId , elementId, elementValue){
+           var dataStrings = {
+                'proccess_type':'update2',
+                'course_id': courseId ,
+                'elementVal' : elementValue.value
+            }
+              $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataStrings  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+       
         
         //Delete Courses
         window.delete_course = function (id){
