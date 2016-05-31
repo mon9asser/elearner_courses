@@ -56,7 +56,7 @@ session_start () ;
                             <tr>
                                 <td>
                                       <input placeholder="Category Name" id="categoryName" />
-                                      <div id="addCategory" class="btn btn-primary">Save Category</div>
+                                      <div id="addCategory" onclick="return addCategory();" class="btn btn-primary">Save Category</div>
                                 </td>
                              </tr>
                         </table>
@@ -201,7 +201,7 @@ session_start () ;
             }); 
         }
         // Add new Category
-        $('#addCategory').click(function (){
+        window.addCategory = function (){
              var category_name = $('#categoryName') ;
             if(category_name.val() == '' ){
                 $('#categoryName').css('border','1px solid tomato');
@@ -226,7 +226,7 @@ session_start () ;
                      window.location.href = "toutorials.php";
                 }
             });
-        }); // ADD new data fielsa 
+        }  // ADD new data fielsa 
         
         //Delete Courses
         window.delete_course = function (id){
