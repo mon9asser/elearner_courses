@@ -8,7 +8,7 @@ session_start () ;
 ?>
 ﻿<!DOCTYPE html>
 <html lang="en">
-	<head>
+    <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin Panel</title>
@@ -19,7 +19,8 @@ session_start () ;
         <link type="text/css" href="css/admin.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
-    <head>
+  </head>
+  
     	<!-- -------------------------------------------------------------------------------- -->
     	<!-- ------------------------------------ Header ------------------------------------ -->
     	<!-- -------------------------------------------------------------------------------- -->
@@ -56,7 +57,7 @@ session_start () ;
                             <tr>
                                 <td>
                                       <input placeholder="Category Name" id="categoryName" />
-                                      <div id="addCategory" onclick="return addCategory();" class="btn btn-primary">Save Category</div>
+                                      <div id="addCategory" class="btn btn-primary">Save Category</div>
                                 </td>
                              </tr>
                         </table>
@@ -178,16 +179,27 @@ session_start () ;
             if(is_file($footer_file )) require_once $footer_file  ;
         ?>
    
-            
-    </body>
-</html>
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+          
+<script src="scripts/jquery.js"></script>
 <script type="text/javascript">
-    
-    
-     // Add new Category
-       function  addCategory    (){
+    $(document).ready(function(){
+        window.update_course_type  = function (courseId , elementId, elementValue){
+           var dataStrings = {
+                'proccess_type':'update2',
+                'course_id': courseId ,
+                'elementVal' : elementValue.value
+            }
+              $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataStrings  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+        // Add new Category
+        $('#addCategory').click(function (){
              var category_name = $('#categoryName') ;
             if(category_name.val() == '' ){
                 $('#categoryName').css('border','1px solid tomato');
@@ -212,27 +224,7 @@ session_start () ;
                      window.location.href = "toutorials.php";
                 }
             });
-        }  // ADD new data fielsa 
-        
-        
-        
-    $(document).ready(function(){
-        window.update_course_type  = function (courseId , elementId, elementValue){
-           var dataStrings = {
-                'proccess_type':'update2',
-                'course_id': courseId ,
-                'elementVal' : elementValue.value
-            }
-              $.ajax({
-                url : 'controler/course_controler.php' ,
-                type : 'POST' ,
-                data : dataStrings  ,
-                 success : function (data){
-                      window.location.href = "toutorials.php";
-                }
-            }); 
-        }
-       
+        }); // ADD new data fielsa 
         
         //Delete Courses
         window.delete_course = function (id){
@@ -302,7 +294,10 @@ session_start () ;
         }
   
     });
-</script>
+</script>  
+    </body>
+</html>
+
  <?php
  ob_end_flush();
 ?>
