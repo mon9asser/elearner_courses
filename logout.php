@@ -1,6 +1,5 @@
- 
 <?php
-      ob_start();
+ ob_start();
  if(session_id() =='')
  session_start () ;
  

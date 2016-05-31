@@ -1,10 +1,5 @@
 <?php
- /*
- * This acess for define all users that signed in or signed up 
- */
- ob_start();
- if(session_id() =='')
-     session_start () ;
+ 
  
  // cehck if session exist 
  if(!isset($_SESSION['user_info']))
@@ -44,6 +39,4 @@ if($user_exist->is_disabled == 1 )
     
     
  
- session_write_close() ;
- ob_end_flush();
 ?>

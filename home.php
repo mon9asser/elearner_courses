@@ -1,3 +1,8 @@
+<?php
+ob_start();
+if(session_id() =='')
+     session_start ();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -248,3 +253,7 @@
    
   </body>
 </html>
+
+<?php
+      ob_end_flush();
+?>

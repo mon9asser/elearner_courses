@@ -1,8 +1,4 @@
 <?php
- /*
-  * This acess for define who is paid to course , to secure all courses without paid 
-  */
-@ob_start();
  
  // check about public access 
      $public_file = dirname(__FILE__)."/../modular/apis/website_setting_apis.php";
@@ -20,5 +16,5 @@
          }
      }
  
- ob_end_flush();
+ 
 ?>

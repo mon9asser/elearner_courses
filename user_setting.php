@@ -1,4 +1,8 @@
-
+<?php
+ob_start();
+if(session_id() =='')
+     session_start ();
+ ?>
  <?php
 
             $fileAccss = dirname(__FILE__)."/privates/private_access.php";
@@ -207,3 +211,6 @@
     </script>
   </body>
 </html>
+<?php
+      ob_end_flush();
+?>

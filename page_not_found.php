@@ -1,4 +1,8 @@
-
+<?php
+ob_start();
+if(session_id() =='')
+     session_start ();
+ ?>
  <?php
 
             $fileAccss = dirname(__FILE__)."/privates/private_access.php";
@@ -36,3 +40,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </body>
 </html>    
 
+<?php
+      ob_end_flush();
+?>
