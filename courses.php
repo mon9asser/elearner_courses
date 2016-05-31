@@ -235,5 +235,7 @@ if(session_id() =='')
     
   </body>
 </html>
-
+<?php
+      ob_end_flush();
+?>
  
