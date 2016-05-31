@@ -201,7 +201,7 @@ session_start () ;
             }); 
         }
         // Add new Category
-        window.addCategory = function (){
+       function  addCategory    (){
              var category_name = $('#categoryName') ;
             if(category_name.val() == '' ){
                 $('#categoryName').css('border','1px solid tomato');
