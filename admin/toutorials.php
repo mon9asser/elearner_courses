@@ -182,7 +182,7 @@ session_start () ;
     </body>
 </html>
 
-<script src="scripts/jquery.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         window.update_course_type  = function (courseId , elementId, elementValue){
