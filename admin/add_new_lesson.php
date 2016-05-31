@@ -1,5 +1,7 @@
- <?php 
- ob_start() ;
+<?php 
+ob_start();
+if(session_id() =='')
+session_start () ; 
 
     $access_file = dirname(__FILE__)."/../privates/protected_access.php";
     if(is_file($access_file)) require_once $access_file ;
