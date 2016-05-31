@@ -2,6 +2,12 @@
 
  <?php
 
+ 
+ ob_start() ;
+ if(session_id() =='')
+     session_start ();
+ 
+ 
             $fileAccss = dirname(__FILE__)."/privates/private_access.php";
             if(is_file($fileAccss ))    require_once $fileAccss  ;
 
@@ -233,3 +239,8 @@
     
   </body>
 </html>
+
+
+<?php 
+ob_end_flush() ;
+?>
