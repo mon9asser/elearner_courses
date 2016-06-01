@@ -163,21 +163,18 @@ session_start () ;
        $('#add_new_course').ajaxForm({
 
             beforeSend: function() {
-                
-            var course_name = document.getElementById('course_name').value;
+             var course_name = document.getElementById('course_name').value;
             var course_description = document.getElementById('course_description').value;
             var image_cover = document.getElementById('image_cover').value;
             var price_ofcourse = document.getElementById('price_ofcourse').value;
             var course_for = document.getElementById('course_for').value;
             var course_will_learn = document.getElementById('course_will_learn').value;
-            
-             if(
+              if(
                  course_name =="" || course_description =="" || image_cover =="" || price_ofcourse ==""
                  || course_for =="" || course_will_learn ==""
                 )    
             abort();
-                 
-            status.empty();
+             status.empty();
             var percentVal = '0%';
             bar.width(percentVal);
             percent.html(percentVal);
@@ -188,8 +185,7 @@ session_start () ;
             percent.html(percentVal);
         },
         complete: function(xhr) {
-             
-            setTimeout(function (){
+             setTimeout(function (){
                window.location.href ="toutorials.php"; 
             }, 2000 );
                  
