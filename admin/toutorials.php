@@ -57,7 +57,7 @@ session_start () ;
                             <tr>
                                 <td>
                                       <input placeholder="Category Name" id="categoryName" />
-                                      <div id="addCategory" class="btn btn-primary">Save Category</div>
+                                      <div onclick="return addCategory();" class="btn btn-primary">Save Category</div>
                                 </td>
                              </tr>
                         </table>
@@ -182,6 +182,7 @@ session_start () ;
           
 <script src="scripts/jquery.js"></script>
 <script type="text/javascript">
+/*
     $(document).ready(function(){
         window.update_course_type  = function (courseId , elementId, elementValue){
            var dataStrings = {
@@ -293,7 +294,122 @@ session_start () ;
             }); 
         }
   
-    });
+    }); */
+
+
+
+function update_category(id , class_id) {
+            var dataString = {
+                'proccess_type':'update',
+                'category_id': id ,
+                'target_value_updated' : $('.'+class_id).val()
+            }
+            
+            $.ajax({
+                url : 'controler/category_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+
+   window.update_course_type  = function (courseId , elementId, elementValue){
+           var dataStrings = {
+                'proccess_type':'update2',
+                'course_id': courseId ,
+                'elementVal' : elementValue.value
+            }
+              $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataStrings  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+        // Add new Category
+        // ADD new data fielsa 
+        
+        //Delete Courses
+        window.delete_course = function (id){
+            var dataString = {
+                'proccess_type':'delete',
+                'course_id': id
+            }
+            $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+         // Update Course
+        window.update_course = function (id , class_id) {
+            var dataStrings = {
+                'proccess_type':'update',
+                'course_id': id ,
+                'target_value_updated' : $('.'+class_id).val()
+            }
+              $.ajax({
+                url : 'controler/course_controler.php' ,
+                type : 'POST' ,
+                data : dataStrings  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+        
+        //Delete Category
+        window.delete_category = function (id){
+            var dataString = {
+                'proccess_type':'delete',
+                'category_id': id
+            }
+            $.ajax({
+                url : 'controler/category_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                 success : function (data){
+                      window.location.href = "toutorials.php";
+                }
+            }); 
+        }
+
+
+
+        function addCategory(){ 
+             var category_name = $('#categoryName') ;
+            if(category_name.val() == '' ){
+                $('#categoryName').css('border','1px solid tomato');
+                return false ;
+            }
+             else 
+                $('#categoryName').css('border','1px solid #dfdfdf'); 
+            
+            var dataString = {
+                'proccess_type':'add',
+                'category_name':category_name.val()
+            }
+            $.ajax({
+                url : 'controler/category_controler.php' ,
+                type : 'POST' ,
+                data : dataString  ,
+                beforeSend : function (){
+                    $('#addCategory').html('Saving Data');
+                } ,
+                success : function (data){
+                     $('#addCategory').html(data);
+                     window.location.href = "toutorials.php";
+                }
+            });
+      }
+              
 </script>  
     </body>
 </html>
