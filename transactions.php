@@ -107,7 +107,7 @@ if(session_id() =='')
                                         ?>
                                     </h5>
                                       <div class="clearFix"></div>
-                                    <a href="elearner_courses/tuts.php?course_id=<?php echo$transaction_data[$i]->course_id ; ;?>" style="float: right; margin: 5px 0px 10px 0px" class="nameHeadline">
+                                    <a href="tuts.php?course_id=<?php echo$transaction_data[$i]->course_id ; ;?>" style="float: right; margin: 5px 0px 10px 0px" class="nameHeadline">
                                         <div class="btn btn-info">Go to this course</div>
                                     </a>
                                 </div>
